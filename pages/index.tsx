@@ -2,10 +2,38 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Avatar,
+  Typography,
+  Button,
+  Rating,
+  Stack,
+  Box,
+  styled,
+  Paper,
+} from "@mui/material";
+import router from "next/router";
+
+import PersonIcon from "@mui/icons-material/Person";
+import SettingsIcon from "@mui/icons-material/Settings";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
 export default function Home() {
+  const [value, setValue] = React.useState<number | null>(5);
   return (
     <>
       <Head>
@@ -18,6 +46,223 @@ export default function Home() {
       {/* carousel b */}
 
       {/* formulario 1 g */}
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={3}>
+          <Grid item xs>
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ height: "320px" }}
+            >
+              <Grid item xs={3}>
+                <Grid item xs={3}>
+                  <Card
+                    sx={{
+                      height: 330,
+                      width: 300,
+                      boxShadow: "none",
+                      border: "1px solid #ced4da",
+                      bgcolor: "#EE811C",
+                    }}
+                  >
+                    <CardContent sx={{ marginLeft: 0 }}>
+                      <Grid container wrap="nowrap" spacing={2}>
+                        <Grid
+                          item
+                          container
+                          spacing={0}
+                          alignItems="center"
+                          justifyContent="center"
+                          flexDirection={"column"}
+                          paddingTop={1}
+                        >
+                          <Avatar
+                            alt="Remy Sharp"
+                            src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
+                            sx={{ width: 50, height: 50 }}
+                          />
+                          <br />
+                          <Typography sx={{ marginTop: 1, color: "white" }}>
+                            Jimena Del Monte
+                          </Typography>
+                          <Rating name="read-only" value={value} readOnly />
+                        </Grid>
+                      </Grid>
+                      <Grid
+                        container
+                        spacing={1}
+                        alignItems="center"
+                        justifyContent="center"
+                        paddingTop={1}
+                        color="white"
+                        fontSize={19}
+                      >
+                        <br />
+                        <Typography
+                          display="block"
+                          color="white"
+                          variant="caption"
+                          align="center"
+                          fontSize={15}
+                        >
+                          "Estoy muy agradecido por la forma en que me
+                          atendieron, los recursos que me brindaron para
+                          explotar mi proyecto y obtener ganancias."
+                        </Typography>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs>
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ height: "320px" }}
+            >
+              <Grid item xs={3}>
+                <Grid item xs={3}>
+                  <Card
+                    sx={{
+                      height: 330,
+                      width: 300,
+                      boxShadow: "none",
+                      border: "1px solid #ced4da",
+                      bgcolor: "#EE811C",
+                    }}
+                  >
+                    <CardContent sx={{ marginLeft: 0 }}>
+                      <Grid container wrap="nowrap" spacing={2}>
+                        <Grid
+                          item
+                          container
+                          spacing={0}
+                          alignItems="center"
+                          justifyContent="center"
+                          flexDirection={"column"}
+                          paddingTop={1}
+                        >
+                          <Avatar
+                            alt="Remy Sharp"
+                            src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
+                            sx={{ width: 50, height: 50 }}
+                          />
+                          <br />
+                          <Typography sx={{ marginTop: 1, color: "white" }}>
+                            Jimena Del Monte
+                          </Typography>
+                          <Rating name="read-only" value={value} readOnly />
+                        </Grid>
+                      </Grid>
+                      <Grid
+                        container
+                        spacing={1}
+                        alignItems="center"
+                        justifyContent="center"
+                        paddingTop={1}
+                        color="white"
+                        fontSize={19}
+                      >
+                        <br />
+                        <Typography
+                          display="block"
+                          color="white"
+                          variant="caption"
+                          align="center"
+                          fontSize={15}
+                        >
+                          "Estoy muy agradecido por la forma en que me
+                          atendieron, los recursos que me brindaron para
+                          explotar mi proyecto y obtener ganancias."
+                        </Typography>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs>
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ height: "320px" }}
+            >
+              <Grid item xs={3}>
+                <Grid item xs={3}>
+                  <Card
+                    sx={{
+                      height: 330,
+                      width: 300,
+                      boxShadow: "none",
+                      border: "1px solid #ced4da",
+                      bgcolor: "#EE811C",
+                    }}
+                  >
+                    <CardContent sx={{ marginLeft: 0 }}>
+                      <Grid container wrap="nowrap" spacing={2}>
+                        <Grid
+                          item
+                          container
+                          spacing={0}
+                          alignItems="center"
+                          justifyContent="center"
+                          flexDirection={"column"}
+                          paddingTop={1}
+                        >
+                          <Avatar
+                            alt="Remy Sharp"
+                            src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
+                            sx={{ width: 50, height: 50 }}
+                          />
+                          <br />
+                          <Typography sx={{ marginTop: 1, color: "white" }}>
+                            Jimena Del Monte
+                          </Typography>
+                          <Rating name="read-only" value={value} readOnly />
+                        </Grid>
+                      </Grid>
+                      <Grid
+                        container
+                        spacing={1}
+                        alignItems="center"
+                        justifyContent="center"
+                        paddingTop={1}
+                        color="white"
+                        fontSize={19}
+                      >
+                        <br />
+                        <Typography
+                          display="block"
+                          color="white"
+                          variant="caption"
+                          align="center"
+                          fontSize={15}
+                        >
+                          "Estoy muy agradecido por la forma en que me
+                          atendieron, los recursos que me brindaron para
+                          explotar mi proyecto y obtener ganancias."
+                        </Typography>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
 
       {/* acerca de b */}
 
