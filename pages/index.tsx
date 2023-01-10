@@ -1,27 +1,23 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
 import {
   Grid,
   Card,
   CardContent,
   Avatar,
   Typography,
-  Button,
   Rating,
-  Stack,
   Box,
   styled,
   Paper,
-  CardActions,
-  CardMedia,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+  Fab,
 } from "@mui/material";
 import React from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -333,6 +329,100 @@ export default function Home() {
       {/* formulario 2 b */}
 
       {/* contacto y footer g */}
+      <br />
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12} sm={12}>
+          <Paper
+            style={{ height: "49vh", background: "#FFFF", boxShadow: "none" }}
+          >
+            <Box
+              display="flex"
+              width={"100%"}
+              // height={"100%"}
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Box
+                component="img"
+                sx={{
+                  height: 230,
+                  width: 350,
+                  maxHeight: { xs: 233, md: 230 },
+                  maxWidth: { xs: 350, md: 350 },
+                }}
+                alt="Velociventas."
+                src="https://content.app-sources.com/s/03275370429034195/uploads/Images/LOGO-PARA-MARCA-NUEVA-0628120.png"
+              />
+            </Box>
+            <br />
+            <Grid
+              item
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Fab
+                aria-label="save"
+                color="primary"
+                sx={{
+                  height: 45,
+                  width: 45,
+                  marginRight: 1,
+                  boxShadow: "none"
+                }}
+                // onClick={handleButtonClick}
+              >
+                <FontAwesomeIcon icon={faFacebookF} />
+              </Fab>
+              <Fab
+                aria-label="save"
+                color="primary"
+                sx={{
+                  height: 45,
+                  width: 45,
+                  boxShadow: "none"
+                }}
+                // onClick={handleButtonClick}
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </Fab>
+              <Fab
+                aria-label="save"
+                color="primary"
+                sx={{
+                  height: 45,
+                  width: 45,
+                  marginLeft: 1,
+                  boxShadow: "none"
+                }}
+                // onClick={handleButtonClick}
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </Fab>
+            </Grid>
+            <Grid
+              item
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Typography
+                display="block"
+                color="black"
+                // maxWidth={250}
+                paddingTop={5}
+                variant="caption"
+                align="center"
+                fontSize={14}
+              >
+                © 2020 Todos los derechos reservados reservados.
+              </Typography>
+            </Grid>
+          </Paper>
+        </Grid>
+      </Grid>
     </>
   );
 }
