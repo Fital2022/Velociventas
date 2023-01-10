@@ -14,6 +14,12 @@ import {
   Box,
   styled,
   Paper,
+  CardActions,
+  CardMedia,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
 } from "@mui/material";
 import React from "react";
 
@@ -42,260 +48,283 @@ export default function Home() {
       {/* carousel b */}
 
       {/* formulario 1 g */}
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={0} paddingTop={5}>
-          <Grid item xs>
-            <Item>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: "320px" }}
-                // paddingLeft={20}
-                // sx={{
-                //   paddingLeft: {
-                //     xs: "none",
-                //     sm: "none",
-                //     md: "none",
-                //     lg: 25,
-                //     xl: 25,
-                //   },
-                // }}
-                // paddingLeft={25}
-              >
-                <Grid item xs={3}>
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12} sm={12}>
+          <Paper
+            style={{
+              height: "auto",
+              background: "lightgrey",
+              paddingBottom: 70,
+              boxShadow: "none",
+            }}
+          >
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              paddingTop={5}
+              // paddingBottom={5}
+            >
+              <Grid item xs={3}>
+                <Typography
+                  display="block"
+                  variant="caption"
+                  align="center"
+                  sx={{ fontSize: 32 }}
+                >
+                  Si ellos lo recomiendan, anímate tu también.
+                </Typography>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography
+                  display="block"
+                  variant="caption"
+                  align="center"
+                  sx={{ fontSize: 18 }}
+                >
+                  Por que nuestra mejor carta de presentación es la
+                  recomendación.
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              columnGap={4}
+              rowGap={4}
+              m={0}
+              paddingTop={2}
+            >
+              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  style={{ height: "420px" }}
+                >
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        height: 390,
-                        width: 340,
-                        boxShadow: "none",
-                        border: "1px solid #ced4da",
-                        bgcolor: "#EE811C",
-                      }}
-                    >
-                      <CardContent sx={{ marginLeft: 0 }}>
-                        <Grid container wrap="nowrap" spacing={2}>
+                    <Grid item xs={3}>
+                      <Card
+                        sx={{
+                          height: 420,
+                          width: 345,
+                          boxShadow: "none",
+                          border: "0px solid #ced4da",
+                          bgcolor: "#EE811C",
+                        }}
+                      >
+                        <CardContent sx={{ marginLeft: 0 }}>
+                          <Grid container wrap="nowrap" spacing={2}>
+                            <Grid
+                              item
+                              container
+                              spacing={0}
+                              alignItems="center"
+                              justifyContent="center"
+                              flexDirection={"column"}
+                              paddingTop={1}
+                            >
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
+                                sx={{ width: 70, height: 70 }}
+                              />
+                              <br />
+                              <Typography sx={{ marginTop: 1, color: "white" }}>
+                                Jimena Del Monte
+                              </Typography>
+                              <br />
+                              <Rating name="read-only" value={value} readOnly />
+                            </Grid>
+                          </Grid>
                           <Grid
-                            item
                             container
-                            spacing={0}
+                            spacing={1}
                             alignItems="center"
                             justifyContent="center"
-                            flexDirection={"column"}
                             paddingTop={1}
-                          >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
-                              sx={{ width: 50, height: 50 }}
-                            />
-                            <br />
-                            <Typography sx={{ marginTop: 1, color: "white" }}>
-                              Jimena Del Monte
-                            </Typography>
-                            <Rating name="read-only" value={value} readOnly />
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="center"
-                          paddingTop={1}
-                          color="white"
-                          fontSize={19}
-                        >
-                          <br />
-                          <Typography
-                            display="block"
                             color="white"
-                            variant="caption"
-                            align="center"
-                            fontSize={15}
+                            fontSize={19}
                           >
-                            "Estoy muy agradecido por la forma en que me
-                            atendieron, los recursos que me brindaron para
-                            explotar mi proyecto y obtener ganancias."
-                          </Typography>
-                          {/* <Grid item>
-              "Estoy muy agradecido por la forma en que me atendieron, los recursos que me brindaron para explotar mi proyecto y obtener ganancias."
-              </Grid> */}
-                        </Grid>
-                      </CardContent>
-                    </Card>
+                            <br />
+                            <Typography
+                              display="block"
+                              color="white"
+                              maxWidth={250}
+                              paddingTop={2}
+                              variant="caption"
+                              align="center"
+                              fontSize={16}
+                            >
+                              "Estoy muy agradecido por la forma en que me
+                              atendieron, los recursos que me brindaron para
+                              explotar mi proyecto y obtener ganancias."
+                            </Typography>
+                          </Grid>
+                        </CardContent>
+                      </Card>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-            </Item>
-          </Grid>
-          <Grid item xs>
-            <Item>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: "320px" }}
-              >
-                <Grid item xs={3}>
+              </Card>
+              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  style={{ height: "420px" }}
+                >
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        height: 390,
-                        width: 340,
-                        boxShadow: "none",
-                        border: "1px solid #ced4da",
-                        bgcolor: "#FFFFFF",
-                      }}
-                    >
-                      <CardContent sx={{ marginLeft: 0 }}>
-                        <Grid container wrap="nowrap" spacing={2}>
+                    <Grid item xs={3}>
+                      <Card
+                        sx={{
+                          height: 420,
+                          width: 345,
+                          boxShadow: "none",
+                          border: "0px solid #ced4da",
+                          bgcolor: "#FFFF",
+                        }}
+                      >
+                        <CardContent sx={{ marginLeft: 0 }}>
+                          <Grid container wrap="nowrap" spacing={2}>
+                            <Grid
+                              item
+                              container
+                              spacing={0}
+                              alignItems="center"
+                              justifyContent="center"
+                              flexDirection={"column"}
+                              paddingTop={1}
+                            >
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://content.app-sources.com/s/03275370429034195/uploads/Images/testimonio3-0953090.png"
+                                sx={{ width: 70, height: 70 }}
+                              />
+                              <br />
+                              <Typography sx={{ marginTop: 1, color: "black" }}>
+                                Francisco García
+                              </Typography>
+                              <br />
+                              <Rating name="read-only" value={value} readOnly />
+                            </Grid>
+                          </Grid>
                           <Grid
-                            item
                             container
-                            spacing={0}
+                            spacing={1}
                             alignItems="center"
                             justifyContent="center"
-                            flexDirection={"column"}
                             paddingTop={1}
+                            color="white"
+                            fontSize={19}
                           >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://content.app-sources.com/s/03275370429034195/uploads/Images/testimonio3-0953090.png"
-                              sx={{ width: 50, height: 50 }}
-                            />
                             <br />
-                            <Typography sx={{ marginTop: 1, color: "black" }}>
-                              Francisco García
+                            <Typography
+                              display="block"
+                              color="black"
+                              maxWidth={250}
+                              paddingTop={2}
+                              variant="caption"
+                              align="center"
+                              fontSize={16}
+                            >
+                              "Estoy muy agradecido por la forma en que me
+                              atendieron, los recursos que me brindaron para
+                              explotar mi proyecto y obtener ganancias."
                             </Typography>
-                            <Rating name="read-only" value={value} readOnly />
                           </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="center"
-                          paddingTop={1}
-                          color="white"
-                          fontSize={19}
-                        >
-                          <br />
-                          <Typography
-                            display="block"
-                            color="black"
-                            variant="caption"
-                            align="center"
-                            fontSize={15}
-                          >
-                            "No sabia como administrar mis recursos y en donde
-                            concentrar mi estrategia, Veloci-ventas me apoyo con
-                            esto y pude recuperar mi inversión más rápido."
-                          </Typography>
-                          {/* <Grid item>
-              "Estoy muy agradecido por la forma en que me atendieron, los recursos que me brindaron para explotar mi proyecto y obtener ganancias."
-              </Grid> */}
-                        </Grid>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-            </Item>
-          </Grid>
-          <Grid item xs>
-            <Item>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: "320px" }}
-                // sx={{
-                //   paddingRight: {
-                //     xs: "none",
-                //     sm: "none",
-                //     md: "none",
-                //     lg: 25,
-                //     xl: 25,
-                //   },
-                //   // paddingTop: { sm: 20, md: 0 },
-                // }}
-                // paddingRight={25}
-              >
-                <Grid item xs={3}>
+              </Card>
+              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  style={{ height: "420px" }}
+                >
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        height: 390,
-                        width: 340,
-                        boxShadow: "none",
-                        border: "1px solid #ced4da",
-                        bgcolor: "#FFFFFF",
-                      }}
-                    >
-                      <CardContent sx={{ marginLeft: 0 }}>
-                        <Grid container wrap="nowrap" spacing={2}>
+                    <Grid item xs={3}>
+                      <Card
+                        sx={{
+                          height: 420,
+                          width: 345,
+                          boxShadow: "none",
+                          border: "0px solid #ced4da",
+                          bgcolor: "#FFFF",
+                        }}
+                      >
+                        <CardContent sx={{ marginLeft: 0 }}>
+                          <Grid container wrap="nowrap" spacing={2}>
+                            <Grid
+                              item
+                              container
+                              spacing={0}
+                              alignItems="center"
+                              justifyContent="center"
+                              flexDirection={"column"}
+                              paddingTop={1}
+                            >
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio2-0953081.png"
+                                sx={{ width: 70, height: 70 }}
+                              />
+                              <br />
+                              <Typography sx={{ marginTop: 1, color: "black" }}>
+                                María Velásquez
+                              </Typography>
+                              <br />
+                              <Rating name="read-only" value={value} readOnly />
+                            </Grid>
+                          </Grid>
                           <Grid
-                            item
                             container
-                            spacing={0}
+                            spacing={1}
                             alignItems="center"
                             justifyContent="center"
-                            flexDirection={"column"}
                             paddingTop={1}
+                            color="white"
+                            fontSize={19}
                           >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio2-0953081.png"
-                              sx={{ width: 50, height: 50 }}
-                            />
                             <br />
-                            <Typography sx={{ marginTop: 1, color: "black" }}>
-                              María Velásquez
+                            <Typography
+                              display="block"
+                              color="black"
+                              maxWidth={250}
+                              paddingTop={2}
+                              variant="caption"
+                              align="center"
+                              fontSize={16}
+                            >
+                              ¡Generarán el plan de acción para que tus ventas
+                              crezcan y tengas muy claro como lograr lo que te
+                              has propuesto!
                             </Typography>
-                            <Rating name="read-only" value={value} readOnly />
                           </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="center"
-                          paddingTop={1}
-                          color="white"
-                          fontSize={19}
-                        >
-                          <br />
-                          <Typography
-                            display="block"
-                            color="black"
-                            variant="caption"
-                            align="center"
-                            fontSize={15}
-                          >
-                            ¡Generarán el plan de acción para que tus ventas
-                            crezcan y tengas muy claro como lograr lo que te has
-                            propuesto!
-                          </Typography>
-                          {/* <Grid item>
-              "Estoy muy agradecido por la forma en que me atendieron, los recursos que me brindaron para explotar mi proyecto y obtener ganancias."
-              </Grid> */}
-                        </Grid>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-            </Item>
-          </Grid>
+              </Card>
+            </Grid>
+          </Paper>
         </Grid>
-      </Box>
+      </Grid>
 
       {/* acerca de b */}
 
