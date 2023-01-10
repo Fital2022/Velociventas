@@ -1,0 +1,6 @@
+.expand-left-right:hover{
+    width: 100px;
+    transition: all 1s;
+    border-color: #25D366;
+    background-color: #25D366;
+}

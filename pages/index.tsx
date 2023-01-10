@@ -16,6 +16,7 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import BackToTopButton from "../components/buttons/BackToTopButton";
+import WhatsAppButton from "../components/buttons/WhatsAppButton";
 
 export default function Home() {
   const [value, setValue] = React.useState<number | null>(5);
@@ -405,6 +406,7 @@ export default function Home() {
           </Paper>
         </Grid>
       </Grid>
+      <WhatsAppButton />
       <BackToTopButton />
     </>
   );
