@@ -82,7 +82,7 @@ export default function Home() {
               m={0}
               paddingTop={2}
             >
-              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+              <Card sx={{ maxWidth: 450, maxHeight: 400, borderRadius: "0", boxShadow: "none" }}>
                 <Grid
                   container
                   spacing={0}
@@ -100,6 +100,7 @@ export default function Home() {
                           boxShadow: "none",
                           border: "0px solid #ced4da",
                           bgcolor: "#EE811C",
+                          borderRadius: "0"
                         }}
                       >
                         <CardContent sx={{ marginLeft: 0 }}>
@@ -156,7 +157,7 @@ export default function Home() {
                   </Grid>
                 </Grid>
               </Card>
-              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+              <Card sx={{ maxWidth: 450, maxHeight: 400, borderRadius: "0", boxShadow: "none" }}>
                 <Grid
                   container
                   spacing={0}
@@ -174,6 +175,7 @@ export default function Home() {
                           boxShadow: "none",
                           border: "0px solid #ced4da",
                           bgcolor: "#FFFF",
+                          borderRadius: "0"
                         }}
                       >
                         <CardContent sx={{ marginLeft: 0 }}>
@@ -230,7 +232,7 @@ export default function Home() {
                   </Grid>
                 </Grid>
               </Card>
-              <Card sx={{ maxWidth: 450, maxHeight: 400 }}>
+              <Card sx={{ maxWidth: 450, maxHeight: 400, borderRadius: "0", boxShadow: "none" }}>
                 <Grid
                   container
                   spacing={0}
@@ -248,6 +250,7 @@ export default function Home() {
                           boxShadow: "none",
                           border: "0px solid #ced4da",
                           bgcolor: "#FFFF",
+                          borderRadius: "0"
                         }}
                       >
                         <CardContent sx={{ marginLeft: 0 }}>
