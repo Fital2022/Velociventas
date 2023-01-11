@@ -21,6 +21,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import BackToTopButton from "../components/buttons/BackToTopButton";
 import WhatsAppButton from "../components/buttons/WhatsAppButton";
+import Timer from "../components/timer/Timer";
 
 export default function Home() {
   const [value, setValue] = React.useState<number | null>(5);
@@ -34,7 +35,7 @@ export default function Home() {
       <Grid
         sx={{
           height: { xs: "auto", md: "100vh" },
-          paddingBottom: {xs: 5},
+          paddingBottom: { xs: 5 },
           backgroundImage:
             "url('https://content.app-sources.com/s/03275370429034195/uploads/Images/IMAGEN-PARA-LANDING-DE-VELOCIVENTAS-HEADER-5-0885087.jpg') ",
           backgroundRepeat: "no-repeat",
@@ -58,10 +59,11 @@ export default function Home() {
           >
             <Card
               sx={{
-                width: 450,
+                width: "auto",
                 height: "85vh",
                 borderRadius: "0",
                 boxShadow: "none",
+                bgcolor: "rgba(255,255,255,0.8)",
               }}
             >
               <Grid
@@ -74,66 +76,7 @@ export default function Home() {
               >
                 <Grid item xs={3}>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        height: 420,
-                        width: 345,
-                        boxShadow: "none",
-                        border: "0px solid #ced4da",
-                        bgcolor: "#EE811C",
-                        borderRadius: "0",
-                      }}
-                    >
-                      {/* <CardContent sx={{ marginLeft: 0 }}>
-                        <Grid container wrap="nowrap" spacing={2}>
-                          <Grid
-                            item
-                            container
-                            spacing={0}
-                            alignItems="center"
-                            justifyContent="center"
-                            flexDirection={"column"}
-                            paddingTop={1}
-                          >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://content.app-sources.com/s/03275370429034195/thumbnails/640x480/Images/testimonio1-0952640.png"
-                              sx={{ width: 70, height: 70 }}
-                            />
-                            <br />
-                            <Typography sx={{ marginTop: 1, color: "white" }}>
-                              Jimena Del Monte
-                            </Typography>
-                            <br />
-                            <Rating name="read-only" value={value} readOnly />
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="center"
-                          paddingTop={1}
-                          color="white"
-                          fontSize={19}
-                        >
-                          <br />
-                          <Typography
-                            display="block"
-                            color="white"
-                            maxWidth={250}
-                            paddingTop={2}
-                            variant="caption"
-                            align="center"
-                            fontSize={16}
-                          >
-                            "Estoy muy agradecido por la forma en que me
-                            atendieron, los recursos que me brindaron para
-                            explotar mi proyecto y obtener ganancias."
-                          </Typography>
-                        </Grid>
-                      </CardContent> */}
-                    </Card>
+                    Formulario
                   </Grid>
                 </Grid>
               </Grid>
@@ -144,7 +87,7 @@ export default function Home() {
                 maxHeight: 400,
                 borderRadius: "0",
                 boxShadow: "none",
-                bgcolor: "transparent"
+                bgcolor: "transparent",
               }}
             >
               <Grid
@@ -163,59 +106,11 @@ export default function Home() {
                         width: 345,
                         boxShadow: "none",
                         border: "0px solid #ced4da",
-                        bgcolor: "rgba(255,255,255,0.8)",
+                        bgcolor: "transparent",
                         borderRadius: "0",
                       }}
                     >
-                      <CardContent sx={{ marginLeft: 0 }}>
-                        <Grid container wrap="nowrap" spacing={2}>
-                          <Grid
-                            item
-                            container
-                            spacing={0}
-                            alignItems="center"
-                            justifyContent="center"
-                            flexDirection={"column"}
-                            paddingTop={1}
-                          >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://content.app-sources.com/s/03275370429034195/uploads/Images/testimonio3-0953090.png"
-                              sx={{ width: 70, height: 70 }}
-                            />
-                            <br />
-                            <Typography sx={{ marginTop: 1, color: "black" }}>
-                              Francisco García
-                            </Typography>
-                            <br />
-                            <Rating name="read-only" value={value} readOnly />
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="center"
-                          paddingTop={1}
-                          color="white"
-                          fontSize={19}
-                        >
-                          <br />
-                          <Typography
-                            display="block"
-                            color="black"
-                            maxWidth={250}
-                            paddingTop={2}
-                            variant="caption"
-                            align="center"
-                            fontSize={16}
-                          >
-                            "Estoy muy agradecido por la forma en que me
-                            atendieron, los recursos que me brindaron para
-                            explotar mi proyecto y obtener ganancias."
-                          </Typography>
-                        </Grid>
-                      </CardContent>
+                      <Timer />
                     </Card>
                   </Grid>
                 </Grid>

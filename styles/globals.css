@@ -31,4 +31,34 @@ a {
   }
 }
 
+/* timer */
+.timer-wrapper {
+  padding: 2rem;
+}
 
+.timer-inner {
+  display: flex;
+  border-radius: 5px;
+}
+
+.timer-segment {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+.divider,
+.time {
+  font-size: 70px;
+}
+
+.diver {
+  padding: 0 2rem;
+  color: white;
+}
+
+.label {
+  color: white;
+}
+/* timer */
