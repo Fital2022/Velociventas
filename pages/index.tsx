@@ -8,10 +8,6 @@ import {
   Box,
   Paper,
   Fab,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  withStyles,
 } from "@mui/material";
 import React from "react";
 
@@ -22,6 +18,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import BackToTopButton from "../components/buttons/BackToTopButton";
 import WhatsAppButton from "../components/buttons/WhatsAppButton";
 import Timer from "../components/timer/Timer";
+import FormOne from "../components/forms/FormOne";
 
 export default function Home() {
   const [value, setValue] = React.useState<number | null>(5);
@@ -59,8 +56,8 @@ export default function Home() {
           >
             <Card
               sx={{
-                width: "auto",
-                height: "85vh",
+                width: { xs: "360px", sm: 800, md: 410 },
+                height: { xs: "99vh", sm: 850, md: "90vh" },
                 borderRadius: "0",
                 boxShadow: "none",
                 bgcolor: "rgba(255,255,255,0.8)",
@@ -72,11 +69,89 @@ export default function Home() {
                 direction="column"
                 alignItems="center"
                 justifyContent="center"
-                style={{ height: "420px" }}
+                style={{ height: "97%", width: "100%" }}
               >
                 <Grid item xs={3}>
-                  <Grid item xs={3}>
-                    Formulario
+                  <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Grid item xs={12}>
+                      <Box
+                        display="flex"
+                        width={"100%"}
+                        alignItems="center"
+                        justifyContent="center"
+                      >
+                        <Box
+                          component="img"
+                          sx={{
+                            height: 150,
+                            width: 250,
+                            maxHeight: { xs: 233, md: 230 },
+                            maxWidth: { xs: 350, md: 350 },
+                          }}
+                          alt="Velociventas."
+                          src="https://content.app-sources.com/s/03275370429034195/uploads/Images/LOGO-PARA-MARCA-NUEVA-0628120.png"
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Grid
+                        container
+                        spacing={0}
+                        direction="column"
+                        alignItems="center"
+                        justifyContent="center"
+                        paddingTop={5}
+                      >
+                        <Grid item xs={3}>
+                          <Typography
+                            display="block"
+                            variant="caption"
+                            align="center"
+                            sx={{
+                              fontSize: 30,
+                              maxWidth: { xs: 350, sm: 700, md: 350 },
+                            }}
+                          >
+                            Nuestro equipo comercial incrementa las
+                            posibilidades de lograr tus objetivos.
+                          </Typography>
+                        </Grid>
+                        <br />
+                        <Grid item xs={3}>
+                          <Typography
+                            display="block"
+                            variant="caption"
+                            align="center"
+                            maxWidth={300}
+                            sx={{
+                              fontSize: 17,
+                              maxWidth: { xs: 350, sm: 500, md: 350 },
+                            }}
+                          >
+                            Generamos los prospectos calificados que tu negocio
+                            necesita. ¡Somos los velociraptors de las ventas!
+                            ¿Quieres saber cómo lo hacemos?
+                          </Typography>
+                        </Grid>
+                        <br />
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sx={{
+                        width: { xs: 300, sm: 600, md: 350 },
+                        marginRight: { xs: "0", md: 1 },
+                      }}
+                    >
+                      <FormOne />
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
@@ -145,7 +220,6 @@ export default function Home() {
               alignItems="center"
               justifyContent="center"
               paddingTop={5}
-              // paddingBottom={5}
             >
               <Grid item xs={3}>
                 <Typography
@@ -442,7 +516,6 @@ export default function Home() {
             <Box
               display="flex"
               width={"100%"}
-              // height={"100%"}
               alignItems="center"
               justifyContent="center"
             >
@@ -515,7 +588,6 @@ export default function Home() {
               <Typography
                 display="block"
                 color="black"
-                // maxWidth={250}
                 paddingTop={5}
                 variant="caption"
                 align="center"

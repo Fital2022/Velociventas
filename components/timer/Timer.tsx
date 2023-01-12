@@ -2,17 +2,12 @@ import {
   Box,
   Button,
   Grid,
-  LinearProgress,
-  LinearProgressProps,
-  Paper,
   Typography,
 } from "@mui/material";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../../styles/Things.module.css";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Timer: NextPage = () => {
   const [partyTime, setPartyTime] = useState(false);
