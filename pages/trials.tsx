@@ -3,6 +3,8 @@ import { CardImage } from "../components/cards/CardImage";
 import { NextPage } from "next";
 import { Grid } from "@mui/material";
 import { CardImageData } from "../interfaces";
+import { ContactForm } from "../components/forms/ContactForm";
+import { VideoText } from "../components/v&t/VideoText";
 
 const CARD_IMAGES: CardImageData[] = [
   {
@@ -29,6 +31,12 @@ const Trials: NextPage = () => {
       <Grid item>
         <CardImage data={CARD_IMAGES} />
       </Grid>
+      <Grid item>
+            <VideoText/>
+        </Grid>
+        <Grid item>
+            <ContactForm/>
+        </Grid>
     </Grid>
   );
 };

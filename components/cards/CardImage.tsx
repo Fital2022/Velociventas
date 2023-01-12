@@ -84,7 +84,7 @@ export const CardImage: FC<Props> = ({ data }) => {
             <span>Diagnostico gratis o el</span>{" "}
             <span className={styles["span-color"]}>10% de descuento</span>
           </Typography>
-          <form>
+          <form onSubmit={handleSubmit}>
             <ModalField
               text="¿Qué te gustaría mejorar?"
               value={value.ask1}
