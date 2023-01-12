@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import styles from "../../styles/custom.module.css";
+import axios from "axios";
 
 export const ContactForm = () => {
   const initialState = {
@@ -33,6 +34,8 @@ export const ContactForm = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(value);
+    let data = {content: value}
+    axios.post('api/sendpost', data).then((response) => {console.log(response)})
     setValue({ ...initialState });
   };
 

@@ -61,7 +61,7 @@ export const CardImage: FC<Props> = ({ data }) => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: "560px",
-            height: "825px",
+            height: "auto",
             bgcolor: "rgb(27,30,34)",
           }}
         >
@@ -129,6 +129,7 @@ export const CardImage: FC<Props> = ({ data }) => {
                 height: "56px",
                 mt: 3,
                 ml: 5.5,
+                mb: 5
               }}
               type="submit"
             >
