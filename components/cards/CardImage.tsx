@@ -62,6 +62,7 @@ export const CardImage: FC<Props> = ({ data }) => {
             transform: "translate(-50%, -50%)",
             width: "560px",
             height: "auto",
+            bgcolor: "rgb(27,30,34)",
           }}
         >
           <IconButton
