@@ -77,3 +77,14 @@
   width: 474px;
   height: 56px;
 }
+
+.form-input{
+  border-radius: 0;
+  border: 1px solid rgba(150,150,150,0.3);
+  width: 440px;
+  height: 56px;
+  border-color: #e1e1e1;
+  text-align: left;
+  margin-top: 10px;
+}
+
