@@ -4,7 +4,7 @@ export const VideoText = () => {
 
   return (
     
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, marginTop: 7, marginBottom: 7 }}>
         <Grid
           container
           sx={{ maxWidth: "1300px" }}

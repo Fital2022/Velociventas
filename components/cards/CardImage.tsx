@@ -52,7 +52,7 @@ export const CardImage: FC<Props> = ({ data }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginTop: 5, marginBottom: 4 }}>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
         <Box
           sx={{
@@ -62,7 +62,6 @@ export const CardImage: FC<Props> = ({ data }) => {
             transform: "translate(-50%, -50%)",
             width: "560px",
             height: "auto",
-            bgcolor: "rgb(27,30,34)",
           }}
         >
           <IconButton

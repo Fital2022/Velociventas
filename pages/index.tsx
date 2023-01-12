@@ -19,6 +19,29 @@ import BackToTopButton from "../components/buttons/BackToTopButton";
 import WhatsAppButton from "../components/buttons/WhatsAppButton";
 import Timer from "../components/timer/Timer";
 import FormOne from "../components/forms/FormOne";
+import { CardImage } from "../components/cards/CardImage";
+import { CardImageData } from "../interfaces";
+import { VideoText } from "../components/v&t/VideoText";
+import { ContactForm } from '../components/forms/ContactForm';
+
+const CARD_IMAGES: CardImageData[] = [
+  {
+    img: "/images/img1.jpeg",
+    text: "Diseño",
+  },
+  {
+    img: "/images/img1.jpeg",
+    text: "Prospeccion",
+  },
+  {
+    img: "/images/img1.jpeg",
+    text: "Publicidad",
+  },
+  {
+    img: "/images/img1.jpeg",
+    text: "Pagina Web",
+  },
+];
 
 export default function Home() {
   const [value, setValue] = React.useState<number | null>(5);
@@ -26,7 +49,11 @@ export default function Home() {
   return (
     <>
       {/* carousel b */}
-
+      <Grid container alignItems="center" justifyContent="center">
+        <Grid item>
+          <CardImage data={CARD_IMAGES} />
+        </Grid>
+      </Grid>
       {/* formulario 1 g */}
 
       <Grid
@@ -195,11 +222,13 @@ export default function Home() {
         </Grid>
       </Grid>
 
-      {/* prueba */}
-
-      {/* prueba */}
-
       {/* acerca de b */}
+
+      <Grid container alignItems="center" justifyContent="center">
+        <Grid item>
+          <VideoText />
+        </Grid>
+      </Grid>
 
       {/* tarjetas de opinion g */}
 
@@ -505,7 +534,11 @@ export default function Home() {
       </Grid>
 
       {/* formulario 2 b */}
-
+      <Grid container alignItems="center" justifyContent="center">
+        <Grid item>
+          <ContactForm />
+        </Grid>
+      </Grid>
       {/* contacto y footer g */}
       <br />
       <Grid container spacing={2} justifyContent="center">
