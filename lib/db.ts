@@ -13,6 +13,7 @@ const db = mysql({
 
 export default async function excuteQuery({query,values}: {query: string  , values: string []}){
     try {
+        console.log(db)
         const results = await db.query(query, values);
         await db.end();
         return results;
