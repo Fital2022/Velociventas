@@ -49,18 +49,19 @@ export const CardImage: FC<Props> = ({ data }) => {
     event.preventDefault();
     console.log(value);
     setValue({ ...initialState });
+    setShowModal(false)
   };
 
   return (
     <Box sx={{ flexGrow: 1, marginTop: 5, marginBottom: 4 }}>
-      <Modal open={showModal} onClose={() => setShowModal(false)}>
+      <Modal open={showModal} onClose={() => setShowModal(false)} sx={{overflow: "scroll"}} >
         <Box
           sx={{
             position: "fixed",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "560px",
+            width:  {xs: "350px", sm: "560px", md: "560px"},
             height: "auto",
             bgcolor: "rgb(27,30,34)",
           }}
@@ -125,10 +126,11 @@ export const CardImage: FC<Props> = ({ data }) => {
               sx={{
                 bgcolor: "rgb(232,108,23)",
                 color: "white",
-                width: "474px",
+                alignSelf: "center",
+                width: {xs: "80%", sm: "474px", md: "474px"},
                 height: "56px",
                 mt: 3,
-                ml: 5.5,
+                ml: {xs: 4, sm: 5.5, md: 5.5},
                 mb: 5
               }}
               type="submit"
@@ -193,7 +195,7 @@ const ModalField: FC<ModalFieldProps> = ({ text, value, setValue, name }) => {
       <Box
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <FormControl>
+        <FormControl sx={{ width: "90%"}}>
           <Typography sx={{ textAlign: "left", color: "white", marginTop: 2 }}>
             <span>{text}</span>{" "}
             <span className={styles["asterik-color"]}>*</span>

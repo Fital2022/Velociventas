@@ -5,6 +5,7 @@ import {
   CardContent,
   Grid,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
@@ -34,8 +35,10 @@ export const ContactForm = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(value);
-    let data = {content: value}
-    axios.post('api/sendpost', data).then((response) => {console.log(response)})
+    let data = { content: value };
+    axios.post("api/sendpost", data).then((response) => {
+      console.log(response);
+    });
     setValue({ ...initialState });
   };
 
@@ -70,32 +73,60 @@ export const ContactForm = () => {
                 sx={{ width: "100%", mt: 5 }}
                 direction={"column"}
               >
-                <input
+                <TextField
+                  id="name"
+                  name="name"
+                  variant="outlined"
                   value={value.name}
-                  name={"name"}
-                  className={styles["form-input"]}
                   onChange={onFormFieldChanges}
-                  placeholder="   Ingresar Tu Nombre"
-                  required
-                ></input>
-                <input
+                  placeholder="Ingresar Tu Nombre"
+                  sx={{
+                    borderRadius: 0,
+                    border: "1px solid rgba(150,150,150,0.3);",
+                    width:  {xs: "280px", sm: "440px", md: "440px"},
+                    height: "56px",
+                    borderColor: "#e1e1e1",
+                    mt: 2,
+                    mr: {xs: 5, sm:0, md: 0}
+                  }}
+                />
+                <TextField
+                  id="name"
+                  name="name"
+                  variant="outlined"
                   value={value.email}
-                  name={"email"}
-                  className={styles["form-input"]}
                   onChange={onFormFieldChanges}
-                  placeholder="   Ingresar Tu Correo"
-                  required
-                ></input>
-                <input
+                  placeholder="Ingresar Tu Correo"
+                  sx={{
+                    borderRadius: 0,
+                    border: "1px solid rgba(150,150,150,0.3);",
+                    width:  {xs: "280px", sm: "440px", md: "440px"},
+                    height: "56px",
+                    borderColor: "#e1e1e1",
+                    mt: 2,
+                    mr: {xs: 5, sm:0, md: 0}
+                  }}
+                />
+                <TextField
+                  id="name"
+                  name="name"
+                  variant="outlined"
                   value={value.phone}
-                  name={"phone"}
-                  className={styles["form-input"]}
                   onChange={onFormFieldChanges}
-                  placeholder="   Ingresar Tu Telefono"
-                  required
-                ></input>
+                  placeholder="Ingresar Tu Telefono"
+                  sx={{
+                    borderRadius: 0,
+                    border: "1px solid rgba(150,150,150,0.3);",
+                    width:  {xs: "280px", sm: "440px", md: "440px"},
+                    height: "56px",
+                    borderColor: "#e1e1e1",
+                    mt: 2,
+                    mr: {xs: 5, sm:0, md: 0}
+                  }}
+                />
+              
                 <Button
-                type="submit"
+                  type="submit"
                   sx={{
                     color: "white",
                     bgcolor: "rgba(238,129,28,1)",
@@ -105,10 +136,11 @@ export const ContactForm = () => {
                     width: "auto",
                     borderRadius: "10px",
                     mt: 3,
+                    mr: {xs: 5, sm:0, md:0},
                     mb: 5,
-                    ":hover" : {
-                    opacity: 0.8,
-                    bgcolor: "rgba(238,129,28,1)",
+                    ":hover": {
+                      opacity: 0.8,
+                      bgcolor: "rgba(238,129,28,1)",
                     },
                   }}
                 >

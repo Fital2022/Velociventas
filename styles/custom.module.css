@@ -70,7 +70,7 @@
 }
 
 .modal-input {
-  width: 474px;
+  width: auto;
   height: 56px;
 }
 
@@ -78,6 +78,16 @@
   border-radius: 0;
   border: 1px solid rgba(150,150,150,0.3);
   width: 440px;
+  height: 56px;
+  border-color: #e1e1e1;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.form-input2{
+  border-radius: 0;
+  border: 1px solid rgba(150,150,150,0.3);
+  width: 340px;
   height: 56px;
   border-color: #e1e1e1;
   text-align: left;

@@ -1,10 +1,11 @@
 import { Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 const FormOne = () => {
   const initialValues = {
-    firstName: "",
+    name: "",
     email: "",
     phone: "",
   };
@@ -21,18 +22,25 @@ const FormOne = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(formValues);
+    let data = {
+      content: formValues
+    }
+    axios.post("api/sendpost", data).then((response) => {
+      console.log(response);
+    });
+    setFormValues({ ...initialValues });
   };
 
   return (
     <>
       <Grid item>
         <TextField
-          id="firstName"
-          name="firstName"
+          id="name"
+          name="name"
           label=""
           placeholder="Nombre"
           type="text"
-          value={formValues.firstName}
+          value={formValues.name}
           onChange={handleInputChange}
           sx={{
             width: { xs: 300, sm: 600, md: 350 },
