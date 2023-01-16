@@ -58,6 +58,7 @@ export const CardImage: FC<Props> = ({ data }) => {
     });
     setValue({ ...initialState });
     setShowModal(false)
+    setShowModal2(true)
   };
 
   return (
@@ -97,6 +98,7 @@ export const CardImage: FC<Props> = ({ data }) => {
             <ModalField
               text="¿Qué te gustaría mejorar?"
               value={value.ask1}
+              type="text"
               name="ask1"
               setValue={onFormFieldChanges}
             />
@@ -104,29 +106,34 @@ export const CardImage: FC<Props> = ({ data }) => {
               text="¿Cuál es tu presupuesto estimado?"
               value={value.ask2}
               name="ask2"
+              type="text"
               setValue={onFormFieldChanges}
             />
             <ModalField
               text="¿En cuánto tiempo necesitas resolverlo?"
               value={value.ask3}
               name="ask3"
+              type="text"
               setValue={onFormFieldChanges}
             />
             <ModalField
               text="Nombre"
               value={value.name}
               name="name"
+              type="text"
               setValue={onFormFieldChanges}
             />
             <ModalField
               text="E-mail"
               value={value.email}
+              type="email"
               name="email"
               setValue={onFormFieldChanges}
             />
             <ModalField
               text="Teléfono"
               value={value.phone}
+              type="tel"
               name="phone"
               setValue={onFormFieldChanges}
             />
@@ -189,9 +196,9 @@ export const CardImage: FC<Props> = ({ data }) => {
                 color: "blue",
               }
             }}
-            onClick={()=> setShowModal(false) }
+            onClick={()=> setShowModal2(false) }
             >
-            Enviar
+            Aceptar
           </Button>
           </Grid>
 
@@ -246,9 +253,10 @@ interface ModalFieldProps {
   value: string;
   setValue: React.Dispatch<ChangeEvent<HTMLInputElement>>;
   name: string;
+  type: string;
 }
 
-const ModalField: FC<ModalFieldProps> = ({ text, value, setValue, name }) => {
+const ModalField: FC<ModalFieldProps> = ({ text, value, setValue, name, type }) => {
   return (
     <>
       <Box
@@ -261,6 +269,7 @@ const ModalField: FC<ModalFieldProps> = ({ text, value, setValue, name }) => {
           </Typography>
           <input
             value={value}
+            type={type}
             name={name}
             className={styles["modal-input"]}
             onChange={setValue}

@@ -109,7 +109,7 @@ export const ContactForm = () => {
             }}
             onClick={()=> setShowModal(false) }
             >
-            Enviar
+            Aceptar
           </Button>
           </Grid>
 

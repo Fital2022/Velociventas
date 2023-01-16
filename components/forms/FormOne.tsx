@@ -80,7 +80,7 @@ const FormOne = () => {
             }}
             onClick={()=> setShowModal(false) }
             >
-            Enviar
+            Aceptar
           </Button>
           </Grid>
 
