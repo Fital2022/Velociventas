@@ -11,7 +11,6 @@ const db = mysql({
         ssl: {
             ca: fs.readFileSync(process.env.PLANETSCALE_SSL_CERT_PATH as string)
         },
-        // ssl: process.env.PLANETSCALE_SSL_CERT_PATH as string
 
     }
 });

@@ -30,15 +30,15 @@ const CARD_IMAGES: CardImageData[] = [
     text: "Diseño",
   },
   {
-    img: "/images/img1.jpeg",
+    img: "/images/img3.jpeg",
     text: "Prospeccion",
   },
   {
-    img: "/images/img1.jpeg",
+    img: "/images/img4.jpeg",
     text: "Publicidad",
   },
   {
-    img: "/images/img1.jpeg",
+    img: "/images/img5.jpeg",
     text: "Pagina Web",
   },
 ];

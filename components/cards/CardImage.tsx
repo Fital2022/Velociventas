@@ -2,9 +2,9 @@ import {
   Button,
   FormControl,
   Grid,
-  Grow,
   IconButton,
   Modal,
+  Paper,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import styles from "../../styles/custom.module.css";
 import { Box } from "@mui/system";
 import { CardImageData } from "../../interfaces";
 import { CloseOutlined, Height } from "@mui/icons-material";
+import axios from "axios";
 
 interface Props {
   data: CardImageData[];
@@ -29,6 +30,7 @@ export const CardImage: FC<Props> = ({ data }) => {
   };
 
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
   const [value, setValue] = useState({
     ask1: "",
     ask2: "",
@@ -48,6 +50,12 @@ export const CardImage: FC<Props> = ({ data }) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(value);
+    let data = {
+      content: value,
+    };
+    axios.post("api/sendpost", data).then((response) => {
+      console.log(response);
+    });
     setValue({ ...initialState });
     setShowModal(false)
   };
@@ -138,6 +146,57 @@ export const CardImage: FC<Props> = ({ data }) => {
               Enviar
             </Button>
           </form>
+        </Box>
+      </Modal>
+      
+      <Modal
+        open={showModal2}
+        onClose={() => setShowModal2(false)}
+        sx={{ overflow: "scroll" }}
+      >
+        <Box
+          sx={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: { xs: "350px", sm: "560px", md: "1080px" },
+            height: "auto",
+            backgroundImage: "url('/images/fondo-modal.jpeg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            
+          }}
+        >
+          <Paper sx={{ bgcolor: "rgba(232,108,23,0.5)"}}>
+            <br />
+          <Typography sx={{mt:9}} align="center" fontFamily={"fantasy"} variant="h2" color={"white"}  >¡Gracias por registrarte!</Typography>
+          <Typography sx={{mt:2}} align="center" fontFamily={"fantasy"} color={"white"} >Te contactáremos a lo más pronto posible</Typography>
+          <Grid container  justifyContent={"center"} sx={{width: "100%"}}>
+          <Button
+            sx={{
+              bgcolor: "white",
+              color: "blue",
+              alignSelf: "center",
+              borderRadius: "53px",
+              width: { xs: "80%", sm: "474px", md: "474px" },
+              height: "56px",
+              mt: 3,
+              ml: { xs: 4, sm: 5.5, md: 5.5 },
+              mb: 10,
+              ":hover": {
+                bgcolor: "rgba(255,255,255,0.7)",
+                color: "blue",
+              }
+            }}
+            onClick={()=> setShowModal(false) }
+            >
+            Enviar
+          </Button>
+          </Grid>
+
+          </Paper>
+            
         </Box>
       </Modal>
 
