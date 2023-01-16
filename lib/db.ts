@@ -7,7 +7,12 @@ const db = mysql({
         database: process.env.MYSQL_DATABASE as string ,
         user: process.env.MYSQL_USER as string ,
         password: process.env.MYSQL_PASSWORD as string,
-        ssl: process.env.PLANETSCALE_SSL_CERT_PATH as string
+        ssl: {
+            ca: process.env.PLANETSCALE_SSL_CERT_PATH,
+
+
+        },
+        // ssl: process.env.PLANETSCALE_SSL_CERT_PATH as string
 
     }
 });
