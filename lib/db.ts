@@ -1,3 +1,4 @@
+import  fs  from 'fs';
 import mysql from 'serverless-mysql'
 
 const db = mysql({
@@ -8,9 +9,7 @@ const db = mysql({
         user: process.env.MYSQL_USER as string ,
         password: process.env.MYSQL_PASSWORD as string,
         ssl: {
-            ca: process.env.PLANETSCALE_SSL_CERT_PATH,
-
-
+            ca: fs.readFileSync(process.env.PLANETSCALE_SSL_CERT_PATH as string)
         },
         // ssl: process.env.PLANETSCALE_SSL_CERT_PATH as string
 
