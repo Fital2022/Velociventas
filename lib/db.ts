@@ -2,11 +2,12 @@ import mysql from 'serverless-mysql'
 
 const db = mysql({
     config: {
-        host: process.env.PLANETSCALE_DB_HOST as string,
-        port: process.env.PLANETSCALE_DB_PORT as unknown as number,
-        database: process.env.PLANETSCALE_DB as string ,
-        user: process.env.PLANETSCALE_DB_USERNAME as string ,
-        password: process.env.PLANETSCALE_DB_PASSWORD as string,
+        host: process.env.MYSQL_HOST as string,
+        port: process.env.MYSQL_PORT as unknown as number,
+        database: process.env.MYSQL_DATABASE as string ,
+        user: process.env.MYSQL_USER as string ,
+        password: process.env.MYSQL_PASSWORD as string,
+        ssl: process.env.PLANETSCALE_SSL_CERT_PATH as string
 
     }
 });
