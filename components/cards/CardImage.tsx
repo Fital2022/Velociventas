@@ -231,7 +231,7 @@ export const CardImage: FC<Props> = ({ data }) => {
                     </Grid>
                     <Button
                       className={styles["hvr-sweep-to-right"]}
-                      sx={{ width: "95%" }}
+                      sx={{ width: "95%", bgcolor: "rgb(47, 111, 165)", color: "white" }}
                       onClick={() => setShowModal(true)}
                     >
                       {" "}
