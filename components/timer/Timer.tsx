@@ -1,13 +1,9 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../../styles/Things.module.css";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import moment from "moment";
 
 const Timer: NextPage = () => {
   const [partyTime, setPartyTime] = useState(false);
@@ -16,8 +12,21 @@ const Timer: NextPage = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  let startTime = moment().format("HH:mm:ss");
+  console.log(startTime);
+
+  startTime = moment(startTime, "HH:mm:ss")
+    .add(15, "minutes")
+    .format("HH:mm:ss");
+  console.log(startTime);
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
+  var yyyy = today.getFullYear();
+
   useEffect(() => {
-    const target = new Date("04/01/2023 23:59:59");
+    const target = new Date('"' + mm + "/" + dd + "/" + yyyy + " " + startTime);
 
     const interval = setInterval(() => {
       const now = new Date();

@@ -66,9 +66,7 @@
   background: rgb(47, 111, 165);
 }
 
-.hvr-sweep-to-right:hover:before,
-.hvr-sweep-to-right:focus:before,
-.hvr-sweep-to-right:active:before {
+.hvr-sweep-to-right:hover:before{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
