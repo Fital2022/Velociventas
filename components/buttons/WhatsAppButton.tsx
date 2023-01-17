@@ -22,6 +22,7 @@ const WhatsAppButton = () => {
           border: "1px solid",
           borderColor: "#25D366",
           backgroundColor: "#25D366",
+          bgcolor: "#25D366", color: "white" 
         }}
         aria-label="save"
         onClick={WhatsApp}
