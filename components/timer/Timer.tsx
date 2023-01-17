@@ -5,6 +5,12 @@ import styles from "../../styles/Things.module.css";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import moment from "moment";
 
+function WhatsApp() {
+  window.open(
+    "https://api.whatsapp.com/send?phone=525539745410&text=Deja%20que%20respondamos%20tus%20dudas"
+  );
+}
+
 const Timer: NextPage = () => {
   const [partyTime, setPartyTime] = useState(false);
   const [days, setDays] = useState(0);
@@ -15,7 +21,7 @@ const Timer: NextPage = () => {
   let startTime = moment().format("HH:mm:ss");
 
   startTime = moment(startTime, "HH:mm:ss")
-    .add(15, "minutes")
+    .add(10, "seconds")
     .format("HH:mm:ss");
 
   var today = new Date();
@@ -54,98 +60,196 @@ const Timer: NextPage = () => {
 
   return (
     <>
-      <Grid container spacing={0} justifyContent="center">
-        <Grid item xs={12} sm={6}>
-          <Box
-            display="flex"
-            // width={"auto"}
-            // height={"100%"}
-            border="none"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Box className={styles["containerTimer"]}>
-              <br />
-              <br />
-              <br />
-              <br />
-              <Box className="timer-inner">
-                <Box className="timer-segment">
-                  <span className="time">{days}</span>
-                  <Typography className="label">Días</Typography>
-                </Box>
-                <span style={{ color: "white" }} className="divider">
-                  :
-                </span>
-                <Box className="timer-segment">
-                  <span className="time">{hours}</span>
-                  <Typography className="label">Horas</Typography>
-                </Box>
-                <span style={{ color: "white" }} className="divider">
-                  :
-                </span>
-                <Box className="timer-segment">
-                  <span className="time">{minutes}</span>
-                  <Typography className="label">Minutos</Typography>
-                </Box>
-                <span style={{ color: "white" }} className="divider">
-                  :
-                </span>
-                <Box className="timer-segment">
-                  <span className="time">{seconds}</span>
-                  <Typography className="label">Segundos</Typography>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-
-          <Box
-            display="flex"
-            // width={"auto"}
-            // height={"100%"}
-            border="none"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Box className={styles["containerTimer"]}>
-              <br />
-              <br />
-              <Box className="timer-inner">
-                <Box sx={{ width: "100%" }}>
-                  <Button
-                    className={styles["hvr-sweep-to-right"]}
-                    sx={{ width: "100%", bgcolor: "rgb(47, 111, 165)", color: "white"  }}
-                  >
-                    <Box sx={{ width: "100%" }}>
-                      <Grid
-                        container
-                        rowSpacing={0}
-                        columnSpacing={{ xs: 1, sm: 2, md: 0 }}
-                      >
-                        <Grid item xs={2}>
-                          <WhatsAppIcon
-                            sx={{
-                              color: "white",
-                              width: 30,
-                              height: 30,
-                              paddingTop: 1,
-                            }}
-                          />
-                        </Grid>
-                        <Grid item xs={10} paddingTop={1.2}>
-                          <Typography style={{ fontSize: 12 }}>
-                            &nbsp;¡Agenda una cita!
-                          </Typography>
-                        </Grid>
-                      </Grid>
+      {partyTime ? (
+        <>
+          <Grid container spacing={0} justifyContent="center">
+            <Grid item xs={12} sm={6}>
+              <Box
+                display="flex"
+                border="none"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Box className={styles["containerTimer"]}>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <Box className="timer-inner">
+                    <Box className="timer-segment">
+                      <span className="time">0</span>
+                      <Typography className="label">Días</Typography>
                     </Box>
-                  </Button>
+                    <span style={{ color: "white" }} className="divider">
+                      :
+                    </span>
+                    <Box className="timer-segment">
+                      <span className="time">0</span>
+                      <Typography className="label">Horas</Typography>
+                    </Box>
+                    <span style={{ color: "white" }} className="divider">
+                      :
+                    </span>
+                    <Box className="timer-segment">
+                      <span className="time">0</span>
+                      <Typography className="label">Minutos</Typography>
+                    </Box>
+                    <span style={{ color: "white" }} className="divider">
+                      :
+                    </span>
+                    <Box className="timer-segment">
+                      <span className="time">0</span>
+                      <Typography className="label">Segundos</Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box
+                display="flex"
+                border="none"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Box className={styles["containerTimer"]}>
+                  <br />
+                  <br />
+                  <Box className="timer-inner">
+                    <Box sx={{ width: "100%" }}>
+                      <Button
+                        className={styles["hvr-sweep-to-right"]}
+                        sx={{
+                          width: "100%",
+                          bgcolor: "rgb(47, 111, 165)",
+                          color: "white",
+                        }}
+                        onClick={WhatsApp}
+                      >
+                        <Box sx={{ width: "100%" }}>
+                          <Grid
+                            container
+                            rowSpacing={0}
+                            columnSpacing={{ xs: 1, sm: 2, md: 0 }}
+                          >
+                            <Grid item xs={2}>
+                              <WhatsAppIcon
+                                sx={{
+                                  color: "white",
+                                  width: 30,
+                                  height: 30,
+                                  paddingTop: 1,
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs={10} paddingTop={1.2}>
+                              <Typography style={{ fontSize: 12 }}>
+                                &nbsp;¡Agenda una cita!
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Button>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </>
+      ) : (
+        <Grid container spacing={0} justifyContent="center">
+          <Grid item xs={12} sm={6}>
+            <Box
+              display="flex"
+              border="none"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Box className={styles["containerTimer"]}>
+                <br />
+                <br />
+                <br />
+                <br />
+                <Box className="timer-inner">
+                  <Box className="timer-segment">
+                    <span className="time">{days}</span>
+                    <Typography className="label">Días</Typography>
+                  </Box>
+                  <span style={{ color: "white" }} className="divider">
+                    :
+                  </span>
+                  <Box className="timer-segment">
+                    <span className="time">{hours}</span>
+                    <Typography className="label">Horas</Typography>
+                  </Box>
+                  <span style={{ color: "white" }} className="divider">
+                    :
+                  </span>
+                  <Box className="timer-segment">
+                    <span className="time">{minutes}</span>
+                    <Typography className="label">Minutos</Typography>
+                  </Box>
+                  <span style={{ color: "white" }} className="divider">
+                    :
+                  </span>
+                  <Box className="timer-segment">
+                    <span className="time">{seconds}</span>
+                    <Typography className="label">Segundos</Typography>
+                  </Box>
                 </Box>
               </Box>
             </Box>
-          </Box>
+
+            <Box
+              display="flex"
+              border="none"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Box className={styles["containerTimer"]}>
+                <br />
+                <br />
+                <Box className="timer-inner">
+                  <Box sx={{ width: "100%" }}>
+                    <Button
+                      className={styles["hvr-sweep-to-right"]}
+                      sx={{
+                        width: "100%",
+                        bgcolor: "rgb(47, 111, 165)",
+                        color: "white",
+                      }}
+                    >
+                      <Box sx={{ width: "100%" }}>
+                        <Grid
+                          container
+                          rowSpacing={0}
+                          columnSpacing={{ xs: 1, sm: 2, md: 0 }}
+                        >
+                          <Grid item xs={2}>
+                            <WhatsAppIcon
+                              sx={{
+                                color: "white",
+                                width: 30,
+                                height: 30,
+                                paddingTop: 1,
+                              }}
+                            />
+                          </Grid>
+                          <Grid item xs={10} paddingTop={1.2}>
+                            <Typography style={{ fontSize: 12 }}>
+                              &nbsp;¡Agenda una cita!
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </>
   );
 };
