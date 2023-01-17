@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import React, { ChangeEvent, FC, ReactEventHandler, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import styles from "../../styles/custom.module.css";
 import { Box } from "@mui/system";
 import { CardImageData } from "../../interfaces";

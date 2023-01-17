@@ -8,8 +8,10 @@ import {
   Box,
   Paper,
   Fab,
+  Modal,
+  IconButton,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -22,7 +24,11 @@ import FormOne from "../components/forms/FormOne";
 import { CardImage } from "../components/cards/CardImage";
 import { CardImageData } from "../interfaces";
 import { VideoText } from "../components/v&t/VideoText";
-import { ContactForm } from '../components/forms/ContactForm';
+import { ContactForm } from "../components/forms/ContactForm";
+import { useEffect } from "react";
+import { CloseOutlined } from "@mui/icons-material";
+import Image from 'next/image';
+import styles from "../styles/custom.module.css";
 
 const CARD_IMAGES: CardImageData[] = [
   {
@@ -46,9 +52,117 @@ const CARD_IMAGES: CardImageData[] = [
 export default function Home() {
   const [value, setValue] = React.useState<number | null>(5);
 
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > (document.documentElement.scrollHeight)/2 ) {
+        setShowModal(true);
+      } else {
+        setShowModal(false);
+      }
+    });
+  }, []);
+
   return (
     <>
+    
       {/* carousel b */}
+      <Modal open={showModal} onClose={() => setShowModal(false)} sx={{overflow: "scroll"}} >
+        <Box
+          sx={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width:  {xs: "350px", sm: "560px", md: "822px"},
+            height: "auto",
+            bgcolor: "white",
+          }}
+        >
+          <IconButton
+            sx={{
+              bgcolor: "white",
+              border: "1px solid black",
+              position: "absolute",
+              right: "-1px",
+              borderRadius: 0,
+            }}
+            onClick={() => setShowModal(false)}
+          >
+            <CloseOutlined />
+          </IconButton>
+        <Grid container alignItems={"center"} direction={"row"} justifyContent={"center"}>
+          <Grid item sx={{width: "100%"}} sm={5} md={3} >
+
+            <Image src={"/images/img6.jpeg"} alt="" className={styles["center-img"]}  width={300} height={800}></Image>
+          </Grid>
+
+          <Grid container alignItems={"center"} item  sx={{mt: 4, bgcolor: "red",width:"100%"}} xs={10} sm={9} md={9}>
+            <Typography variant="h4" color="orange"  align="justify">¡Regístrate ahora y obtén el diagnostico de tu página gratis! o  10% de descuento en tu proyecto! (precio de lanzamiento)</Typography>
+          </Grid>
+        </Grid>
+          {/* <form onSubmit={handleSubmit}>
+            <ModalField
+              text="¿Qué te gustaría mejorar?"
+              value={value.ask1}
+              type="text"
+              name="ask1"
+              setValue={onFormFieldChanges}
+            />
+            <ModalField
+              text="¿Cuál es tu presupuesto estimado?"
+              value={value.ask2}
+              name="ask2"
+              type="text"
+              setValue={onFormFieldChanges}
+            />
+            <ModalField
+              text="¿En cuánto tiempo necesitas resolverlo?"
+              value={value.ask3}
+              name="ask3"
+              type="text"
+              setValue={onFormFieldChanges}
+            />
+            <ModalField
+              text="Nombre"
+              value={value.name}
+              name="name"
+              type="text"
+              setValue={onFormFieldChanges}
+            />
+            <ModalField
+              text="E-mail"
+              value={value.email}
+              type="email"
+              name="email"
+              setValue={onFormFieldChanges}
+            />
+            <ModalField
+              text="Teléfono"
+              value={value.phone}
+              type="tel"
+              name="phone"
+              setValue={onFormFieldChanges}
+            />
+            <Button
+              sx={{
+                bgcolor: "rgb(232,108,23)",
+                color: "white",
+                alignSelf: "center",
+                width: {xs: "80%", sm: "474px", md: "474px"},
+                height: "56px",
+                mt: 3,
+                ml: {xs: 4, sm: 5.5, md: 5.5},
+                mb: 5
+              }}
+              type="submit"
+            >
+              Enviar
+            </Button>
+          </form> */}
+        </Box>
+      </Modal>
       <Grid container alignItems="center" justifyContent="center">
         <Grid item>
           <CardImage data={CARD_IMAGES} />
@@ -634,6 +748,7 @@ export default function Home() {
       </Grid>
       <WhatsAppButton />
       <BackToTopButton />
+      
     </>
   );
 }
