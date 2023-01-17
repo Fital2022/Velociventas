@@ -114,7 +114,7 @@ const Timer: NextPage = () => {
                 <Box sx={{ width: "100%" }}>
                   <Button
                     className={styles["hvr-sweep-to-right"]}
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%", bgcolor: "rgb(47, 111, 165)", color: "white"  }}
                   >
                     <Box sx={{ width: "100%" }}>
                       <Grid
