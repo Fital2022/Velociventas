@@ -27,7 +27,7 @@ const WhatsAppButton = () => {
         aria-label="save"
         onClick={WhatsApp}
       >
-        <WhatsAppIcon sx={{ color: "white", width: 50, height: 55 }} />
+        <WhatsAppIcon sx={{ color: "white", width: 50, height: 55, bgcolor: "#25D366" }} />
         
       </IconButton>
       
