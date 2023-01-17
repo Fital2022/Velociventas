@@ -13,12 +13,10 @@ const Timer: NextPage = () => {
   const [seconds, setSeconds] = useState(0);
 
   let startTime = moment().format("HH:mm:ss");
-  console.log(startTime);
 
   startTime = moment(startTime, "HH:mm:ss")
     .add(15, "minutes")
     .format("HH:mm:ss");
-  console.log(startTime);
 
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, "0");
