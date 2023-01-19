@@ -10,8 +10,9 @@ import {
   Fab,
   Modal,
   IconButton,
+  Button,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -26,9 +27,15 @@ import { CardImageData } from "../interfaces";
 import { VideoText } from "../components/v&t/VideoText";
 import { ContactForm } from "../components/forms/ContactForm";
 import { useEffect } from "react";
-import { CloseOutlined } from "@mui/icons-material";
-import Image from 'next/image';
+import {
+  BorderVerticalTwoTone,
+  CloseOutlined,
+  Height,
+} from "@mui/icons-material";
+import Image from "next/image";
 import styles from "../styles/custom.module.css";
+import FormModal from "../components/forms/FormModal";
+import { ModalContext } from '../store/ModalContenxt';
 
 const CARD_IMAGES: CardImageData[] = [
   {
@@ -49,127 +56,205 @@ const CARD_IMAGES: CardImageData[] = [
   },
 ];
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  // width: 400,
+  bgcolor: "white",
+  border: "0px solid #000",
+  boxShadow: 0,
+  // p: 4,
+  outline: 0,
+};
+
 export default function Home() {
+
+  const modalContext = useContext(ModalContext)
+
+  console.log(modalContext);
   const [value, setValue] = React.useState<number | null>(5);
 
-  const [showModal, setShowModal] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > (document.documentElement.scrollHeight)/2 ) {
-        setShowModal(true);
-      } else {
-        setShowModal(false);
+   const cleanUp = window.addEventListener("scroll", () => {
+      if (window.scrollY > 2800) {
+        handleOpen();
       }
     });
+    // return() => window.removeEventListener(cleanUp)
   }, []);
 
   return (
     <>
-    
       {/* carousel b */}
-      <Modal open={showModal} onClose={() => setShowModal(false)} sx={{overflow: "scroll"}} >
+      <Modal
+        open={open && modalContext.modal}
+        onClose={() => modalContext.setIsFirtsTime(false)}
+        sx={{
+          paddingTop: { xs: 10, sm: 10, md: 13 },
+        }}
+      >
         <Box
-          sx={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width:  {xs: "350px", sm: "560px", md: "822px"},
-            height: "auto",
-            bgcolor: "white",
-          }}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          marginTop={50}
         >
-          <IconButton
-            sx={{
-              bgcolor: "white",
-              border: "1px solid black",
-              position: "absolute",
-              right: "-1px",
-              borderRadius: 0,
-            }}
-            onClick={() => setShowModal(false)}
-          >
-            <CloseOutlined />
-          </IconButton>
-        <Grid container alignItems={"center"} direction={"row"} justifyContent={"center"}>
-          <Grid item sx={{width: "100%"}} sm={5} md={3} >
-
-            <Image src={"/images/img6.jpeg"} alt="" className={styles["center-img"]}  width={300} height={800}></Image>
-          </Grid>
-
-          <Grid container alignItems={"center"} item  sx={{mt: 4, bgcolor: "red",width:"100%"}} xs={10} sm={9} md={9}>
-            <Typography variant="h4" color="orange"  align="justify">¡Regístrate ahora y obtén el diagnostico de tu página gratis! o  10% de descuento en tu proyecto! (precio de lanzamiento)</Typography>
-          </Grid>
-        </Grid>
-          {/* <form onSubmit={handleSubmit}>
-            <ModalField
-              text="¿Qué te gustaría mejorar?"
-              value={value.ask1}
-              type="text"
-              name="ask1"
-              setValue={onFormFieldChanges}
-            />
-            <ModalField
-              text="¿Cuál es tu presupuesto estimado?"
-              value={value.ask2}
-              name="ask2"
-              type="text"
-              setValue={onFormFieldChanges}
-            />
-            <ModalField
-              text="¿En cuánto tiempo necesitas resolverlo?"
-              value={value.ask3}
-              name="ask3"
-              type="text"
-              setValue={onFormFieldChanges}
-            />
-            <ModalField
-              text="Nombre"
-              value={value.name}
-              name="name"
-              type="text"
-              setValue={onFormFieldChanges}
-            />
-            <ModalField
-              text="E-mail"
-              value={value.email}
-              type="email"
-              name="email"
-              setValue={onFormFieldChanges}
-            />
-            <ModalField
-              text="Teléfono"
-              value={value.phone}
-              type="tel"
-              name="phone"
-              setValue={onFormFieldChanges}
-            />
-            <Button
-              sx={{
-                bgcolor: "rgb(232,108,23)",
-                color: "white",
-                alignSelf: "center",
-                width: {xs: "80%", sm: "474px", md: "474px"},
-                height: "56px",
-                mt: 3,
-                ml: {xs: 4, sm: 5.5, md: 5.5},
-                mb: 5
-              }}
-              type="submit"
+          <Box sx={{ border: "0px solid #000", outline: 0, position: "fixed" }}>
+            <Grid
+              container
+              direction="column"
+              justifyContent="space-evenly"
+              alignItems="center"
             >
-              Enviar
-            </Button>
-          </form> */}
+              <IconButton
+                sx={{
+                  bgcolor: "#F7F7F7",
+                  border: "#F7F7F7",
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  borderRadius: 0,
+                }}
+                onClick={() => handleClose()}
+              >
+                <CloseOutlined sx={{ color: "black" }} />
+              </IconButton>
+
+              <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                columnGap={0}
+                rowGap={4}
+                m={0}
+              >
+                <Card
+                  sx={{
+                    width: { xs: "none", sm: "none", md: 360 },
+                    height: { xs: "none", sm: "none", md: "70vh" },
+                    borderRadius: "0",
+                    boxShadow: "none",
+                    backgroundImage:
+                      "url('https://content.app-sources.com/s/23844678268074654/uploads/Images/wes-hicks-480398-unsplash-7707864.jpg') ",
+                    backgroundSize: "cover",
+                    backgroundPositionX: -355,
+                  }}
+                ></Card>
+                <Card
+                  sx={{
+                    width: { xs: "100vw", sm: "100vw", md: 450 },
+                    height: { xs: "79vh", sm: 700, md: "70vh" },
+                    borderRadius: "0",
+                    boxShadow: "none",
+                    bgcolor: "white",
+                  }}
+                >
+                  <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{ height: "100%" }}
+                  >
+                    <Grid item xs={3}>
+                      <Grid item xs={12}>
+                        <Card
+                          sx={{
+                            height: "100%",
+                            width: "100%",
+                            boxShadow: "none",
+                            border: "0px solid #ced4da",
+                            bgcolor: "transparent",
+                            borderRadius: "0",
+                          }}
+                        >
+                          <Grid
+                            container
+                            spacing={0}
+                            direction="column"
+                            alignItems="center"
+                            justifyContent="center"
+                            style={{ height: "97%", width: "100%" }}
+                          >
+                            <Grid
+                              container
+                              spacing={0}
+                              direction="column"
+                              alignItems="center"
+                              justifyContent="center"
+                            >
+                              <Grid item xs={12}>
+                                <Grid
+                                  container
+                                  spacing={0}
+                                  direction="column"
+                                  alignItems="center"
+                                  justifyContent="center"
+                                  paddingTop={0}
+                                >
+                                  <Grid item xs={3}>
+                                    <Typography
+                                      display="block"
+                                      variant="caption"
+                                      align="center"
+                                      sx={{
+                                        fontSize: 30,
+                                        color: "#EE811C",
+                                        lineHeight: "100%",
+                                        fontWeight: 500,
+                                        maxWidth: {
+                                          xs: 310,
+                                          sm: 700,
+                                          md: 350,
+                                        },
+                                      }}
+                                    >
+                                      ¡Regístrate ahora y obtén el diagnostico
+                                      de tu página gratis! o 10% de descuento en
+                                      tu proyecto (precio de lanzamiento)
+                                    </Typography>
+                                  </Grid>
+                                  <br />
+                                  <br />
+                                </Grid>
+                              </Grid>
+                              <Grid
+                                item
+                                xs={12}
+                                sx={{
+                                  width: { xs: 300, sm: 600, md: 350 },
+                                  marginRight: { xs: "0", md: 1 },
+                                }}
+                              >
+                                <FormModal />
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Card>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
       </Modal>
+
       <Grid container alignItems="center" justifyContent="center">
         <Grid item>
           <CardImage data={CARD_IMAGES} />
         </Grid>
       </Grid>
       {/* formulario 1 g */}
-
       <Grid
         sx={{
           height: { xs: "auto", md: "100vh" },
@@ -335,17 +420,13 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-
       {/* acerca de b */}
-
       <Grid container alignItems="center" justifyContent="center">
         <Grid item>
           <VideoText />
         </Grid>
       </Grid>
-
       {/* tarjetas de opinion g */}
-
       <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12} sm={12}>
           <Paper
@@ -646,7 +727,6 @@ export default function Home() {
           </Paper>
         </Grid>
       </Grid>
-
       {/* formulario 2 b */}
       <Grid container alignItems="center" justifyContent="center">
         <Grid item>
@@ -748,7 +828,6 @@ export default function Home() {
       </Grid>
       <WhatsAppButton />
       <BackToTopButton />
-      
     </>
   );
 }

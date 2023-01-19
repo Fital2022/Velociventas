@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 
-const FormOne = () => {
+const FormModal = () => {
   const initialValues = {
     name: "",
     email: "",
@@ -119,7 +119,7 @@ const FormOne = () => {
             }}
           />
         </Grid>
-
+        <br />
         <Grid item>
           <TextField
             id="email"
@@ -137,6 +137,7 @@ const FormOne = () => {
             }}
           />
         </Grid>
+        <br />
         <Grid item>
           <TextField
             id="phone"
@@ -154,6 +155,7 @@ const FormOne = () => {
             }}
           />
         </Grid>
+        <br />
         <Grid
           container
           spacing={0}
@@ -168,11 +170,13 @@ const FormOne = () => {
               type="submit"
               style={{
                 backgroundColor: "#EE811C",
-                margin: "5px",
-                borderRadius: 8,
+                // margin: "5px",
+                borderRadius: 0,
                 boxShadow: "none",
               }}
               sx={{
+                width: { xs: 300, sm: 600, md: 350 },
+                height: 70,
                 ":hover": {
                   opacity: 0.8,
                   bgcolor: "#EE811C",
@@ -180,7 +184,7 @@ const FormOne = () => {
                 },
               }}
             >
-              ¡SÍ! QUIERO APRENDER CÓMO
+              Enviar
             </Button>
             <br />
           </Grid>
@@ -190,4 +194,4 @@ const FormOne = () => {
   );
 };
 
-export default FormOne;
+export default FormModal;

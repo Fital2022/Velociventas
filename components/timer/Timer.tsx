@@ -21,7 +21,7 @@ const Timer: NextPage = () => {
   let startTime = moment().format("HH:mm:ss");
 
   startTime = moment(startTime, "HH:mm:ss")
-    .add(10, "seconds")
+    .add(15, "minutes")
     .format("HH:mm:ss");
 
   var today = new Date();
