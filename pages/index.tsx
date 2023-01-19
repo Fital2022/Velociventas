@@ -71,30 +71,17 @@ const style = {
 
 export default function Home() {
 
-  const modalContext = useContext(ModalContext)
 
-  console.log(modalContext);
   const [value, setValue] = React.useState<number | null>(5);
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  useEffect(() => {
-   const cleanUp = window.addEventListener("scroll", () => {
-      if (window.scrollY > 2800) {
-        handleOpen();
-      }
-    });
-    // return() => window.removeEventListener(cleanUp)
-  }, []);
+  const [open, setOpen] = React.useState(true);
 
   return (
     <>
       {/* carousel b */}
       <Modal
-        open={open && modalContext.modal}
-        onClose={() => modalContext.setIsFirtsTime(false)}
+        open={open }
+        onClose={() => setOpen(false)}
         sx={{
           paddingTop: { xs: 10, sm: 10, md: 13 },
         }}
@@ -121,7 +108,7 @@ export default function Home() {
                   top: 0,
                   borderRadius: 0,
                 }}
-                onClick={() => handleClose()}
+                onClick={() => setOpen(false)}
               >
                 <CloseOutlined sx={{ color: "black" }} />
               </IconButton>
