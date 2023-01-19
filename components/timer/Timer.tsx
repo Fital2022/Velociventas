@@ -218,6 +218,7 @@ const Timer: NextPage = () => {
                         bgcolor: "rgb(47, 111, 165)",
                         color: "white",
                       }}
+                      onClick={WhatsApp}
                     >
                       <Box sx={{ width: "100%" }}>
                         <Grid

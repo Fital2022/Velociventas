@@ -10,9 +10,8 @@ import {
   Fab,
   Modal,
   IconButton,
-  Button,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -26,16 +25,8 @@ import { CardImage } from "../components/cards/CardImage";
 import { CardImageData } from "../interfaces";
 import { VideoText } from "../components/v&t/VideoText";
 import { ContactForm } from "../components/forms/ContactForm";
-import { useEffect } from "react";
-import {
-  BorderVerticalTwoTone,
-  CloseOutlined,
-  Height,
-} from "@mui/icons-material";
-import Image from "next/image";
-import styles from "../styles/custom.module.css";
+import { CloseOutlined } from "@mui/icons-material";
 import FormModal from "../components/forms/FormModal";
-import { ModalContext } from '../store/ModalContenxt';
 
 const CARD_IMAGES: CardImageData[] = [
   {
@@ -56,22 +47,7 @@ const CARD_IMAGES: CardImageData[] = [
   },
 ];
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  // width: 400,
-  bgcolor: "white",
-  border: "0px solid #000",
-  boxShadow: 0,
-  // p: 4,
-  outline: 0,
-};
-
 export default function Home() {
-
-
   const [value, setValue] = React.useState<number | null>(5);
 
   const [open, setOpen] = React.useState(true);
@@ -80,7 +56,7 @@ export default function Home() {
     <>
       {/* carousel b */}
       <Modal
-        open={open }
+        open={open}
         onClose={() => setOpen(false)}
         sx={{
           paddingTop: { xs: 10, sm: 10, md: 13 },
